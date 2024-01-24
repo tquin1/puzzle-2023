@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snowy Summer Restoration (Writing)</title>
+    <link rel="icon" href="https://tquin1.github.io/puzzle/images/logo.svg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body{overflow:hidden}
+        .scrollable {
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::before {
+            content: attr(data-content);
+            position: absolute;
+            top: -2.5rem;
+            left: 0;
+            background-color: #1F2937;
+            color: #FFFFFF;
+            padding: 0.5rem;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            z-index: 1;
+        }
+
+        .tooltip:hover::before {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .tooltip-image {
+            display: none;
+        }
+
+        .tooltip-modal {
+            visibility: hidden;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 4px;
+            position: fixed;
+            top: 50%;
+            right: 51rem;
+            transform: translateY(-50%);
+            z-index: 1;
+            max-width: 300px;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .bad {
+            background-color: #ff4747;
+        }
+        .good {
+            background-color: green;
+        }
+
+        .mid {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <div class="relative">
+        <a href="https://tquin1.github.io/puzzle" title="Back to puzzles">
+        <img src="https://tquin1.github.io/puzzle/images/logo.svg" alt="Image" class="absolute top-0 right-0 h-10 w-10" style="padding-top: 10px;padding-right:10px;"></a>
+      </div>
+      
+    <br>    <br>
+
+    <header class="bg-gray-900 text-white">
+        <div class="container flex justify-center mx-auto flex-col items-center" style="margin-bottom:-75px">
+          <div>
+            <h1 class="text-4xl font-bold">Snowy Summer Restoration</h1>
+          </div>
+          <div>
+            <h2 class="text-xl mt-4"><span style="color:cyan;font-weight:bold">Prompt:</span> It's June 13th and the snow won't stop falling...</h2>
+          </div>
+        </div>
+      </header>
+      
+      
+      
+      
+    <div class="flex h-screen items-center justify-center">
+        <div class="w-5/6 flex">
+            <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 mx-2" style="max-height:700px!important">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold mb-2">Original</h2>
+                    <div class="h-100 scrollable">
+
+                        
+                        <p class="tooltip bad" data-content="The story opens abruptly, providing no
+                        context or setting for the events.">On June 13th, it snowed all day in Millfield.</p><br>
+
+                        <p data-content="The impact of the snowfall on the town
+                        and its people is mentioned but lacks specific descriptions and  depth." class="tooltip mid">
+                            The town was supposed to have summer, but instead, it got snow. Schools closed, stores shut,
+                            and
+                            the streets were empty. Snow covered everything.</p><br>
+
+                        <p class="bad tooltip"
+                            data-content="The actions of the characters are described briefly without providing sufficient context or significance.">
+                            Jack looked out his window and saw the snow falling. It was strange. He went outside and his
+                            friends Isaac and Mia joined him. They built a snowman. The snow was sticky, and they shaped
+                            it.
+                        </p><br>
+
+                        <p class="mid tooltip"
+                            data-content="The connection between the characters' actions and the change in weather is not explained, leaving it unclear how they affected the situation.">
+                            As they built, the snowfall slowed. The sky turned blue. The town came out and saw the
+                            snowman. They knew Jack, Isaac, and Mia broke the spell. Summer could begin.
+                        </p><br>
+
+                        <p class="bad tooltip"
+                            data-content="The overall impact of the characters' actions on the town and its people is not explored, leaving the ending somewhat vague.">
+                            Since then, June 13th was remembered as the snowy day when Jack, Isaac, and Mia brought
+                            warmth back to the town of Millfield.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-2/4 mx-2"></div>
+            <div style="max-height:700px!important" class="bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 mx-2">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold mb-2">Revised</h2>
+                    <div class="h-100 scrollable">
+                        <p class="good tooltip" data-content="The opening sets the scene and introduces the unexpected snowfall, creating a sense of anticipation.">
+                            On a crisp morning, the calendar boldly proclaimed June 13th, the long-awaited threshold to summer in the idyllic town of Millfield. However, as dawn broke, a curious and foreboding sight greeted its residents—an unyielding torrent of snowflakes gracefully descending from the heavens. Nature's plan had gone awry, bestowing upon the town a wintry embrace instead of the expected warmth.
+                            </p><br>
+                            
+                            <p class="good tooltip" data-content="The description of the town and the atmosphere enhances the reader's visualization and engagement.">
+                            An eerie stillness settled upon Millfield, as if time had come to a standstill. The streets, once bustling with the commotion of daily life, now lay forsaken, blanketed in an ethereal whiteness that obscured familiar paths. The snowflakes danced in unison, as if in a delicate choreography, creating an enchanting spectacle against the backdrop of a sky veiled in shades of somber gray.
+                            </p><br>
+                            
+                            <p class="good tooltip" data-content="The emotional impact on the townsfolk is emphasized, creating a sense of tension and concern.">
+                            Within the confines of their homes, bewildered townsfolk sought solace, their anxious gazes fixed upon the relentless snowfall outside. Whispers of uncertainty and speculation filled the air, questioning the nature of this unexpected phenomenon and whether it signaled an ominous new era. The chill crept through the walls, prompting thoughts of whether warmth would ever return to Millfield.
+                            </p><br>
+                            
+                            <p class="good tooltip" data-content="Jack's emotions and motivations are explored, adding depth to his character.">
+                            Yet, amidst this wintry tableau, a young boy named Jack gazed longingly through his frosted windowpane, his breath mingling with condensation as he observed the ethereal snowflakes pirouetting gracefully in the wind. Curiosity and a tinge of apprehension intertwined within him, compelling him to venture forth into this frozen realm.
+                            </p><br>
+                            
+                            <p class="good tooltip" data-content="The actions and reactions of the characters are depicted more vividly.">
+                            Donning his trusty jacket, boots, and a snug hat, Jack ventured into the winter wonderland, his footsteps creating a symphony of soft crunches upon the pristine snow. As if summoned by an unseen force, his friends Isaac and Mia emerged from their homes, their eyes mirroring Jack's mix of awe and trepidation.
+                            </p><br>
+                            
+                            <p class="good tooltip" data-content="The purpose and significance of building the snowman are elaborated upon, showcasing the characters' determination.">
+                            Together, they embarked on a shared mission to defy the whims of nature. The snow, unlike any they had encountered before, possessed a tantalizing quality of cohesion, allowing their youthful hands to sculpt an imposing snowman—the embodiment of their resolute defiance against the relentless snowfall.
+                            </p><br>
+                            
+                            <p class="good tooltip" data-content="The joy and camaraderie of the characters are highlighted, making their actions more meaningful.">
+                            Laughter echoed through the stillness as Jack, Isaac, and Mia reveled in their creation, momentarily oblivious to the frigid embrace of the season. Their playful banter and tireless effort transformed the snowman into a towering masterpiece, standing resolute against the snowy backdrop.
+                            </p><br>
+                            
+                            <p class="good tooltip" data-content="The connection between the characters' actions and the change in weather is emphasized, providing a clear cause and effect.">
+                            As if in response to their unwavering spirit, the snowfall gradually abated, the storm relinquishing its icy grip upon Millfield. The heavens, in a grand spectacle of transformation, shed their cloak of gray, revealing a vibrant canvas of azure. It was as though the triumphant snowman had cast an enchanting spell, liberating the town from the clutches of winter's icy reign.
+                            </p><br>
+                            
+                            <p class="good tooltip" data-content="The impact of the characters' actions on the town and its people is highlighted, emphasizing their role in the community's restoration.">
+                            Emerging from their homes, the townsfolk bore witness to the miraculous scene that unfolded before their eyes. The once-frozen streets now shimmered under a delicate veil of glistening snow, a testament to the collective resilience of a community. And there, standing tall and proud beside their monumental creation, Jack, Isaac, and Mia became beacons of hope—the architects of their town's renaissance.
+                            </p><br>
+                            
+                            <p class="good tooltip" data-content="The resolution and significance of the events are clarified, providing a satisfying conclusion.">
+                            Since that fateful day, June 13th became an enduring symbol in the hearts of Millfield's inhabitants. It marked the day when snowfall refused to yield, but more significantly, the day when three young souls, through their indomitable spirit and unwavering friendship, triumphantly restored warmth and summer to the cherished town of Millfield.
+                            </p><br><br><br><br><br><br><br><br><br><br><br><br>
+                            
+                    </div>
+                </div>
+
+            </div>
+            <div class="tooltip-modal">
+                <div class="modal-content">
+                    <img src="" class="modal-image mb-4" onerror="this.style.display='none';">
+                    <p class="modal-text"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const tooltips = document.querySelectorAll('.tooltip');
+        const modal = document.querySelector('.tooltip-modal');
+        const modalImage = modal.querySelector('.modal-image');
+        const modalText = modal.querySelector('.modal-text');
+
+        tooltips.forEach((tooltip) => {
+            tooltip.addEventListener('mouseenter', handleTooltipMouseEnter);
+            tooltip.addEventListener('mouseleave', handleTooltipMouseLeave);
+        });
+
+        function handleTooltipMouseEnter(event) {
+            const tooltip = event.currentTarget;
+            const content = tooltip.dataset.content;
+            const image = tooltip.dataset.image;
+
+            modalText.textContent = content;
+            modalImage.src = image;
+
+            modal.style.visibility = 'visible';
+            modal.style.opacity = '1';
+        }
+
+        function handleTooltipMouseLeave() {
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
+        }
+    </script>
+</body>
+
+</html>

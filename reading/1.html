@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Loneliness Package (Reading)</title>
+    <link rel="icon" href="https://tquin1.github.io/puzzle/images/logo.svg">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            overflow: hidden
+        }
+
+        .scrollable {
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::before {
+            content: attr(data-content);
+            position: absolute;
+            top: -2.5rem;
+            left: 0;
+            background-color: #1F2937;
+            color: #FFFFFF;
+            padding: 0.5rem;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            z-index: 1;
+        }
+
+        .tooltip:hover::before {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .tooltip-image {
+            display: none;
+        }
+
+        .tooltip-modal {
+            visibility: hidden;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 4px;
+            position: fixed;
+            top: 27%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            max-width: 300px;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+
+
+        .modal-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .bad {
+            background-color: #ff4747;
+        }
+
+        .goodwrite {
+            background-color: light;
+        }
+
+        .mid {
+            background-color: orange;
+        }
+
+        .dark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 1;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fade-out 1s ease-in-out forwards;
+        }
+
+        @keyframes fade-out {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <div class="dark-overlay"></div>
+    <div class="relative">
+        <a href="https://tquin1.github.io/puzzle" title="Back to puzzles">
+            <img src="https://tquin1.github.io/puzzle/images/logo.svg" alt="Image" class="absolute top-0 right-0 h-10 w-10"
+                style="padding-top: 10px;padding-right:10px;"></a>
+    </div>
+
+    <br> <br>
+
+    <header class="bg-gray-900 text-white">
+        <div class="container flex justify-center mx-auto flex-col items-center" style="margin-bottom:-75px">
+            <div>
+                <h1 class="text-4xl font-bold">Standard Loneliness Package</h1>
+            </div>
+            <div>
+                <h2 class="text-xl mt-4">Short story by Charles Yu</h2>
+            </div>
+        </div>
+    </header>
+
+
+
+    <br><br><br><br><br>
+    <div class="flex h-screen items-center justify-center">
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 mx-2"
+            style="max-height:500px!important;width:800px">
+            <div class="p-4">
+                <div class="h-100 scrollable">
+                    <p class="goodwrite tooltip"
+                        data-content="This line acts as a window into the character's work life and sets the tone for a hectic and demanding environment, where the character is already faced with a high workload.">
+                        I get to work late and already there are nine tickets in my inbox.
+                    </p><br>
+                    <p class="goodwrite tooltip"
+                        data-content="This window into the character's thoughts and emotions reveals their ability to empathize with the grief of others, showcasing their sensitivity and capacity for emotional connection.">
+                        I am at a funeral.<br>
+                        I am feeling grief.<br>
+                        Someone else’s grief.
+                    </p><br>
+                    <p class="goodwrite tooltip"
+                        data-content="The character's introspection about their emotional state provides a window into their complex inner world, hinting at a sense of personal responsibility or remorse that often accompanies grief.">
+                        I am feeling a mixture of things.<br>
+                        Grief, mostly, but I also detect that there is some guilt in there. There usually is.
+                    </p><br>
+                    <p class="goodwrite tooltip"
+                        data-content="This descriptive window captures the character's observations at the funeral, highlighting their attention to details such as the appearance of the mourners. It offers insight into their perception and the lens through which they view the world.">
+                        I hear crying.<br>
+                        I am seeing crying faces. Pretty faces. Crying, pretty, white faces.<br>
+                        Nice clothes.
+                    </p><br>
+                    <p class="goodwrite tooltip"
+                        data-content="The character's contemplation of the shift manager's reminders about the company's services provides a window into their work environment and the manager's repetitive assertiveness. It sheds light on the character's perception of their job's value and their place within the company hierarchy.">
+                        Our services aren’t cheap. As the shift manager is always reminding us.<br>
+                        Need I remind you? That is his favorite phrase these days. He is always walking up and down the
+                        aisle tilting his head into our cubicles and saying it. Need I remind you, he says, of where we
+                        are on the spectrum? In terms of low-end/high-end? We are solidly towards the highish-end.
+                    </p><br>
+                    <p class="goodwrite tooltip"
+                        data-content="This reflection on the appearance and demeanor of the mourners at the funeral offers a window into the character's thoughts and biases. It provides insights into their perceptions of beauty, wealth, and the social dynamics at play, showcasing their introspection and questioning of societal norms.">
+                        So the faces are usually pretty, the clothes are usually nice. The people are usually nice, too.
+                    </p><br>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tooltip-modal">
+            <div class="modal-content">
+                <img src="" class="modal-image mb-4" onerror="this.style.display='none';">
+                <p class="modal-text"></p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <script>
+        const tooltips = document.querySelectorAll('.tooltip');
+        const modal = document.querySelector('.tooltip-modal');
+        const modalImage = modal.querySelector('.modal-image');
+        const modalText = modal.querySelector('.modal-text');
+
+        tooltips.forEach((tooltip) => {
+            tooltip.addEventListener('mouseenter', handleTooltipMouseEnter);
+            tooltip.addEventListener('mouseleave', handleTooltipMouseLeave);
+        });
+
+        function handleTooltipMouseEnter(event) {
+            const tooltip = event.currentTarget;
+            const content = tooltip.dataset.content;
+            const image = tooltip.dataset.image;
+
+            modalText.textContent = content;
+            modalImage.src = image;
+
+            modal.style.visibility = 'visible';
+            modal.style.opacity = '1';
+        }
+
+        function handleTooltipMouseLeave() {
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
+        }
+    </script>
+    <script>$(document).ready(function () {
+            $(".dark-overlay").css("pointer-events", "auto"); // Enable pointer events
+        });
+    </script>
+</body>
+
+</html>

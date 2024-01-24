@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Book is Anti-Rascist (Reading)</title>
+    <link rel="icon" href="https://tquin1.github.io/puzzle/images/logo.svg">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            overflow: hidden
+        }
+
+        .scrollable {
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::before {
+            content: attr(data-content);
+            position: absolute;
+            top: -2.5rem;
+            left: 0;
+            background-color: #1F2937;
+            color: #FFFFFF;
+            padding: 0.5rem;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            z-index: 1;
+        }
+
+        .tooltip:hover::before {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .tooltip-image {
+            display: none;
+        }
+
+        .tooltip-modal {
+            visibility: hidden;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 4px;
+            position: fixed;
+            top: 27%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            max-width: 300px;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+
+
+        .modal-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .bad {
+            background-color: #ff4747;
+        }
+
+        .goodwrite {
+            background-color: light;
+        }
+
+        .mid {
+            background-color: orange;
+        }
+
+        .dark-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 1;
+            pointer-events: none;
+            z-index: 9999;
+            animation: fade-out 1s ease-in-out forwards;
+        }
+
+        @keyframes fade-out {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <div class="dark-overlay"></div>
+    <div class="relative">
+        <a href="https://tquin1.github.io/puzzle" title="Back to puzzles">
+            <img src="https://tquin1.github.io/puzzle/images/logo.svg" alt="Image"
+                class="absolute top-0 right-0 h-10 w-10" style="padding-top: 10px;padding-right:10px;"></a>
+    </div>
+
+    <br> <br>
+
+    <header class="bg-gray-900 text-white">
+        <div class="container flex justify-center mx-auto flex-col items-center" style="margin-bottom:-75px">
+            <div>
+                <h1 class="text-4xl font-bold">This Book is Anti-Racist</h1>
+            </div>
+            <div>
+                <h2 class="text-xl mt-4">by Tiffany Jewell
+                </h2>
+            </div>
+        </div>
+    </header>
+
+
+
+    <br><br><br><br><br>
+    <div class="flex h-screen items-center justify-center">
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 mx-2"
+            style="max-height:500px!important;width:800px">
+            <div class="p-4">
+                <div class="h-100 scrollable">
+                    <p class="annotation tooltip"
+                        data-content="This passage sheds light on the pervasive racism in medical institutions, exposing the historical mistreatment and ongoing biases faced by BIPoC patients. It highlights the impact of these biases on their trust in medical professionals and their overall health outcomes.">
+                        There is a long history of racism in medicine in the UK/US: from the unethical, forced
+                        experimentation on enslaved folx, to immigrants being denied healthcare due to lack of
+                        citizenship.</p><br>
+                    <p class="annotation tooltip"
+                        data-content="Emphasizes the historical scope and severity of racism in medicine">Personal
+                        biases held by doctors and the historical oppression of Black, Brown, and Indigenous folx have
+                        not only led to a deep mistrust of medical professionals, but also to a lower life expectancy
+                        for BIPoC.</p><br>
+                    <p class="annotation tooltip"
+                        data-content="Provides concrete evidence and reinforces the message with data">Around 4% of
+                        doctors in the US are Black and about 6% of doctors are Latinx.</p><br>
+                    <p class="annotation tooltip"
+                        data-content="Employs a direct and assertive tone, highlighting the issue of anti-Black biases">
+                        White and non-Black doctors are more likely to hold anti-Black biases, which affect the way they
+                        treat patients.</p><br>
+                    <p class="annotation tooltip"
+                        data-content="Establishes credibility and supports the claim through empirical evidence">Studies
+                        find that one of the biases held is believing Black folx have a higher tolerance for pain, which
+                        results in doctors not believing them when they seek help.</p><br>
+                    <p class="annotation tooltip"
+                        data-content="Highlights the unequal treatment and lack of respectful communication towards BIPoC patients">
+                        BIPoC experience unequal treatment to white patients who experience the same ailments, and
+                        doctors tend to lecture BIPoC and not respectfully communicate to them.</p><br>
+                    <p class="annotation tooltip"
+                        data-content="Conveys the psychological impact on patients through a cause-and-effect relationship">
+                        This leads to a sense of internalized inferiority in patients, who are less likely to seek the
+                        support of medical professionals.</p><br>
+                    <p class="annotation tooltip"
+                        data-content="Urges the recognition of biases and emphasizes the impact on marginalized communities">
+                        Without training to notice biases and address them, Folx of the Global Majority will continue to
+                        have a lower life expectancy.</p><br>
+                    <p class="annotation tooltip"
+                        data-content="The specific examples and statistics provided make the issue more tangible and concrete">
+                        The passage challenges the reader, especially those who are not directly affected by such
+                        biases, to recognize and confront the systemic racism present in healthcare.</p><br>
+                    <p class="annotation tooltip"
+                        data-content="This passage may bring awareness to the reader's own privilege and prompt introspection about their potential biases and responsibilities">
+                        As a white man, this passage may bring awareness to the reader's own privilege and prompt
+                        introspection about their potential biases and responsibilities to address these disparities.
+                    </p><br>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="tooltip-modal">
+            <div class="modal-content">
+                <img src="" class="modal-image mb-4" onerror="this.style.display='none';">
+                <p class="modal-text"></p>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <script>
+        const tooltips = document.querySelectorAll('.tooltip');
+        const modal = document.querySelector('.tooltip-modal');
+        const modalImage = modal.querySelector('.modal-image');
+        const modalText = modal.querySelector('.modal-text');
+
+        tooltips.forEach((tooltip) => {
+            tooltip.addEventListener('mouseenter', handleTooltipMouseEnter);
+            tooltip.addEventListener('mouseleave', handleTooltipMouseLeave);
+        });
+
+        function handleTooltipMouseEnter(event) {
+            const tooltip = event.currentTarget;
+            const content = tooltip.dataset.content;
+            const image = tooltip.dataset.image;
+
+            modalText.textContent = content;
+            modalImage.src = image;
+
+            modal.style.visibility = 'visible';
+            modal.style.opacity = '1';
+        }
+
+        function handleTooltipMouseLeave() {
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
+        }
+    </script>
+    <script>$(document).ready(function () {
+            $(".dark-overlay").css("pointer-events", "auto"); // Enable pointer events
+        });
+    </script>
+</body>
+
+</html>

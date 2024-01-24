@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+
+<head>
+  <title>English summative</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="images/logo.svg">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    html,
+    body {
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+      background-color: black;
+    }
+
+    #loadings {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 30px;
+    }
+
+    .image {
+      display: block;
+      border: 2px solid #000;
+      box-sizing: border-box;
+      transition: border-color 0.3s, filter 0.3s;
+      cursor: pointer;
+      position: relative;
+      max-width: 320px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .image.selected {
+      border-color: cyan;
+    }
+
+    .image.selected::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border: 2px solid cyan;
+      animation: selected-animation 0.5s;
+    }
+
+    @keyframes selected-animation {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .screen-shake {
+      animation: shake 0.5s infinite;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translateX(0);
+      }
+
+      20% {
+        transform: translateX(-5px);
+      }
+
+      40% {
+        transform: translateX(5px);
+      }
+
+      60% {
+        transform: translateX(-5px);
+      }
+
+      80% {
+        transform: translateX(5px);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .transition {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0c0e14;
+      display: none;
+      z-index: 99999 !important
+    }
+
+    #overlay-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+    }
+
+    #overlay-content h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    #overlay-content ul {
+      padding: 0;
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    #overlay-content ul li {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    #overlay-content ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #overlay-content ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .start-btn:hover {
+      box-shadow: 0 0 8px 2px cyan;
+    }
+
+    .start-btn:focus {
+      outline: none;
+      box-shadow: 0 0 8px 2px cyan;
+    }
+
+    .start-btn:active {
+      background-color: cyan;
+    }
+
+    .card-container {
+      width: 320px;
+      height: 214.2px !important;
+      display: block;
+      border: 2px solid #000;
+      box-sizing: border-box;
+      transition: border-color 0.3s, filter 0.3s;
+      cursor: pointer;
+      position: relative;
+      max-width: 320px;
+      object-fit: cover;
+      border-radius: 10px !important;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+      border-radius: 10px !important;
+
+    }
+
+    .flipped {
+      transform: rotateY(180deg);
+    }
+
+    .front,
+    .back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      border-radius: 10px !important;
+
+    }
+
+    .front {
+      background-image: url('images/chair.jpg');
+      background-size: cover;
+      border-radius: 5px !important;
+
+    }
+
+    .back {
+      background-image: url('images/ezra.png');
+      background-size: cover;
+      transform: rotateY(180deg);
+    }
+  </style>
+
+</head>
+
+<body>
+  <script>$(document).ready(function () {
+      $("#overlay").fadeIn(500);
+
+      $(".choosePuzzle").on("click", function () {
+        var id = $(this).attr("id");
+        $("#overlay").fadeOut(1000, function () {
+          $(this).addClass("hidden");
+        });
+      });
+    });
+
+  </script>
+
+  <div id="loading">Loading...</div>
+  <div id="root" style="display: none;">
+    <div class="left" style="display:none!important">
+      <div class="tip">
+        <span class="tip1"></span>
+        <span class="tip2"></span>
+        <span class="tip3"></span>
+      </div>
+
+      <div id="records" style="display:none">
+        <ul class="current"></ul>
+        <ul class="history" style="display:none"></ul>
+      </div>
+      <div class="btn-group hide">
+      </div>
+    </div>
+    <center>
+      <div id="container">
+        <div class="step">
+          <section class="step1">
+            <ul class="imgList" style="display:none">
+              <li class="selected">
+                <img data-tag="default-1" alt="Super-Mario-Odyssey" style="display:none">
+              </li>
+              <li>
+                <img data-tag="default-2" alt="Zelda" style="display:none">
+
+              </li>
+            </ul>
+            <div class="upload">
+
+              <input id="imgUpload" type="file" name="image" multiple accept="image/png, image/jpeg, image/gif"
+                style="display:none!important">
+              <script src="choosepuzzle.js"></script>
+              <div id="overlay">
+                <script>
+                  function flipCard(event) {
+                    event.preventDefault();
+
+                    var card = event.currentTarget;
+                    card.classList.toggle("flipped");
+                  }
+                </script>
+                <div id="overlay-content">
+                  <h3 style="font-family:Arial, Helvetica, sans-serif">Select a puzzle:</h3>
+                  <ul>
+                    <li><a href="#1" class="choosePuzzle" id="choosePuzzle1"
+                        onclick="selectImage('images/drugs.jpg')"><img src="images/drugs.jpg"
+                          class="image"></a>
+                    </li>
+                    <li>
+                      <div class="card-container">
+                        <a href="#2" class="choosePuzzle" onclick="selectImage('images/chair.jpg')">
+                          <div id="choosePuzzle2" class="card" oncontextmenu="flipCard(event)">
+                            <div class="front"></div>
+                            <div class="back"></div>
+                          </div>
+                        </a>
+                      </div>
+                    </li>
+
+                    <li><a href="#3" id="choosePuzzle3" class="choosePuzzle"
+                        onclick="selectImage('images/rice.jpg')"><img src="images/rice.jpg"
+                          class="image"></a>
+                    </li>
+                    <li><a href="#4" id="choosePuzzle4" class="choosePuzzle"
+                        onclick="selectImage('images/funeral.jpg')"><img src="images/funeral.jpg"
+                          class="image"></a>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+
+              <script src="complete.js"></script>
+            </div>
+          </section>
+          <section class="step2" style="all:unset!important">
+            <div class="grade">
+              <div class="gridWrap" style="display: flex!important; justify-content: center!important; align-items: center!important;position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%)">
+                <div class="">
+                  <span style="display:none!important" class="hidden label" data-type="col" data-value="0">1</span>
+                  <span style="display:none!important" class="hidden label" data-type="col" data-value="1">2</span>
+                  <span style="display:none!important" class="hidden label" data-type="col" data-value="2">3</span>
+                  <span style="display:none!important" class="hidden label" data-type="col" data-value="3">4</span>
+                  <span style="display:none!important" class="hidden label" data-type="col" data-value="4">5</span>
+                  <span style="display:none!important" class="hidden label" data-type="col" data-value="5">6</span>
+                  <span style="display:none!important" class="hidden label" data-type="col" data-value="6">7</span>
+                </div>
+                <ul>
+                  <span style="display:none!important" class="hidden label" data-type="row" data-value="0">1</span>
+                  <li data-p="00"></li>
+                  <li data-p="01"></li>
+                  <li data-p="02"></li>
+                  <li data-p="03"></li>
+                  <li data-p="04"></li>
+                  <li data-p="05"></li>
+                  <li data-p="06"></li>
+                </ul>
+                <ul>
+                  <span style="display:none!important" class="hidden label" data-type="row" data-value="1">2</span>
+                  <li data-p="10"></li>
+                  <li data-p="11"></li>
+                  <li data-p="12"></li>
+                  <li data-p="13"></li>
+                  <li data-p="14"></li>
+                  <li data-p="15"></li>
+                  <li data-p="16"></li>
+                </ul>
+                <ul>
+                  <span style="display:none!important" class="hidden label" data-type="row" data-value="2">3</span>
+                  <li data-p="20"></li>
+                  <li data-p="21"></li>
+                  <li data-p="22"></li>
+                  <li data-p="23"></li>
+                  <li data-p="24"></li>
+                  <li data-p="25"></li>
+                  <li data-p="26"></li>
+                </ul>
+                <ul>
+                  <span style="display:none!important" class="hidden label" data-type="row" data-value="3">4</span>
+                  <li data-p="30"></li>
+                  <li data-p="31"></li>
+                  <li data-p="32"></li>
+                  <li data-p="33"></li>
+                  <li data-p="34"></li>
+                  <li data-p="35"></li>
+                  <li data-p="36"></li>
+                </ul>
+                <ul>
+                  <span style="display:none!important" class="hidden label" data-type="row" data-value="4">5</span>
+                  <li data-p="40"></li>
+                  <li data-p="41"></li>
+                  <li data-p="42"></li>
+                  <li data-p="43"></li>
+                  <li data-p="44"></li>
+                  <li data-p="45"></li>
+                  <li data-p="46"></li>
+                </ul>
+                <ul>
+                  <span style="display:none!important" class="hidden label" data-type="row" data-value="5">6</span>
+                  <li data-p="50"></li>
+                  <li data-p="51"></li>
+                  <li data-p="52"></li>
+                  <li data-p="53"></li>
+                  <li data-p="54"></li>
+                  <li data-p="55"></li>
+                  <li data-p="56"></li>
+                </ul>
+                <ul>
+                  <span style="display:none!important" class="hidden label" data-type="row" data-value="6">7</span>
+                  <li data-p="60"></li>
+                  <li data-p="61"></li>
+                  <li data-p="62"></li>
+                  <li data-p="63"></li>
+                  <li data-p="64"></li>
+                  <li data-p="65"></li>
+                  <li data-p="66"></li>
+                </ul>
+                <center>
+
+                  <button class="start-btn" style="  display: inline-block;
+              padding: 10px 20px;
+              font-size: 16px;
+              font-weight: bold;
+              text-align: center;
+              text-decoration: none;
+              color: #0c0e14;
+              background-color: cyan;
+              border: none;
+              border-radius: 4px;
+              transition: background-color 0.3s ease;
+              cursor: pointer;  position: fixed;
+              position: absolute;
+  top: 140%;
+  left: 50%;
+  transform: translate(-50%, -50%);z-index:9999999!important
+" id="startGame">ENTER</button>
+                </center>
+              </div>
+              <div class="gradeInput" style="display:none!important">
+                <p></p>
+                <div class="inputWrap hide">
+                  <label for="divideRow">
+                    <input id="divideRow" type="number" step="1" min="1" name="divide-row" value="3" autofocus />
+                  </label>
+                  <label for="divideCol">
+                    <input id="divideCol" type="number" step="1" min="1" name="divide-col" value="4" />
+                  </label>
+                  <span class="warning">&nbsp;</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="countDown hide" style="
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative;
+        top: 50%;
+        left: 62%;
+        transform: translate(-50%, -50%);">
+          <span>3</span>...
+        </div>
+        <div id="puzzleBox" style="position:relative;
+        top: 41%;
+        left: 62%;
+        transform: translate(-50%, -50%);z-index:0">
+          <div class="puzzleWrap"></div>
+        </div>
+        <div id="imgPiece" style="position:relative;
+        top: 8%;
+        left: 50%;
+        transform: translate(-50%, -50%);z-index:0" class="hide">
+          <span class="rest"></span>
+          <ul class="clearfix"></ul>
+        </div>
+      </div>
+    </center>
+  </div>
+</body>
+<script src="bundle.js"></script>
+<script>
+  const images = document.querySelectorAll('.image');
+  images.forEach(image => {
+    image.addEventListener('click', () => {
+      images.forEach(image => {
+        image.classList.remove('selected');
+      });
+      image.classList.add('selected');
+    });
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/2.8.1/gl-matrix-min.js"></script>
+
+</html>

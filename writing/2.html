@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blossoms of Renewal (Writing)</title>
+    <link rel="icon" href="https://tquin1.github.io/puzzle/images/logo.svg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            overflow: hidden
+        }
+
+        .scrollable {
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::before {
+            content: attr(data-content);
+            position: absolute;
+            top: -2.5rem;
+            left: 0;
+            background-color: #1F2937;
+            color: #FFFFFF;
+            padding: 0.5rem;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            z-index: 1;
+        }
+
+        .tooltip:hover::before {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .tooltip-image {
+            display: none;
+        }
+
+        .tooltip-modal {
+            visibility: hidden;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 4px;
+            position: fixed;
+            top: 50%;
+            right: 51rem;
+            transform: translateY(-50%);
+            z-index: 1;
+            max-width: 300px;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .bad {
+            background-color: #ff4747;
+        }
+
+        .good {
+            background-color: green;
+        }
+
+        .lacking {
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white">
+    <div class="relative">
+        <a href="https://tquin1.github.io/puzzle" title="Back to puzzles">
+            <img src="https://tquin1.github.io/puzzle/images/logo.svg" alt="Image"
+                class="absolute top-0 right-0 h-10 w-10" style="padding-top: 10px;padding-right:10px;"></a>
+    </div>
+
+    <br> <br>
+
+    <header class="bg-gray-900 text-white">
+        <div class="container flex justify-center mx-auto flex-col items-center" style="margin-bottom:-75px">
+            <div>
+                <h1 class="text-4xl font-bold">Blossoms of Renewal</h1>
+            </div>
+            <div>
+                <h2 class="text-xl mt-4"><span style="color:cyan;font-weight:bold">Prompt:</span> Write a story about
+                    spring. Think about how plants growing can symbolize new life and birth...</h2>
+            </div>
+        </div>
+    </header>
+
+
+
+
+    <div class="flex h-screen items-center justify-center">
+        <div class="w-5/6 flex">
+            <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 mx-2" style="max-height:700px!important">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold mb-2">Original</h2>
+                    <div class="h-100 scrollable">
+
+                        <p class="lacking tooltip"
+                            data-content="The opening sentence lacks specificity and fails to engage the reader's attention.">
+                            Once upon a season called spring, something began to stir in the world.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The description of the plant awakening is unremarkable and lacks vividness.">
+                            The plants, ever so gradually, began to awaken from their long winter slumber.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks descriptive details and could benefit from more sensory imagery.">
+                            Timid buds peeked through the ground, tentatively seeking the warmth of the sun.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence is cliché and lacks originality. It needs to provide a clearer image and engage the reader's imagination.">
+                            It was as if nature itself held its breath, waiting for the miracle of new life to unfold.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The transition lacks a smooth progression and fails to provide descriptive details.">
+                            As the days grew brighter, the once barren landscape transformed into a tapestry of color
+                            and vitality.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks specific examples of fragrances and a stronger connection to the theme of new life and birth.">
+                            Petals unfurled, releasing a symphony of fragrances that danced in the air.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The metaphor is weak and lacks originality in conveying the theme of new life and birth.">
+                            Each delicate flower seemed to embody the essence of rebirth, as if saying, "Look, behold
+                            the miracle of existence."
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The description of the seed lacks engagement and curiosity.">
+                            Amidst this awakening, a small seed nestled in the soil, hidden from view.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks specific details about the seed's transformation and the significance of its growth.">
+                            Patiently, it waited for its moment to bloom, to emerge from the darkness and embrace the
+                            world.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks sensory details and a stronger connection to the theme of new life and birth.">
+                            Days turned into weeks, and the seed quivered with anticipation, its roots reaching deeper
+                            into the earth, drawing nourishment and strength.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks descriptive details and fails to create a sense of wonder or awe.">
+                            Then, one magical morning, a tender sprout emerged, stretching towards the heavens.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks descriptive details and fails to convey the significance of the plant's growth.">
+                            It was a humble shoot, yet filled with the promise of life.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence provides a generic description of the plant's growth without engaging the reader's imagination.">
+                            With each passing day, it grew taller and stronger, its leaves unfurling like a delicate
+                            fan.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks descriptive details and a strong connection to the theme of new life and birth.">
+                            The once tiny seed had now blossomed into a young plant, standing proud amidst a sea of
+                            green.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks clarity and fails to explain how the growth of plants conveys a profound message.">
+                            In this simple act of growth, the plants whispered a profound message of hope and
+                            resilience.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence conveys a generic message without providing specific examples or engaging the reader's emotions.">
+                            They symbolized the eternal cycle of birth and renewal, reminding us that even in the
+                            darkest moments, there is always the possibility of new beginnings.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks originality and does not effectively connect the theme of new life and birth to human experiences.">
+                            They urged us to embrace the ever-changing seasons of life and find solace in the knowledge
+                            that after every cold winter, spring will return.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks a strong concluding statement and fails to leave a lasting impact.">
+                            And so, the story of spring unfolded, a reminder that life is a constant journey of
+                            transformation.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks specific examples and fails to convey the beauty and resilience of nature effectively.">
+                            Each blooming flower, each budding leaf, served as a testament to the beauty and resilience
+                            of nature.
+                        </p><br>
+
+                        <p class="lacking tooltip"
+                            data-content="The sentence lacks originality and does not effectively connect the theme of new life and birth to personal growth.">
+                            They inspired us to seek out our own inner growth, to embrace change, and to believe in the
+                            limitless potential that lies within us all.
+                        </p><br><br><br><br><br><br><br><br><br><br><br>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-2/4 mx-2"></div>
+            <div style="max-height:700px!important" class="bg-gray-800 rounded-lg shadow-lg overflow-hidden w-3/4 mx-2">
+                <div class="p-4">
+                    <h2 class="text-lg font-semibold mb-2">Revised</h2>
+                    <div class="h-100 scrollable">
+                        <p class="good tooltip"
+                            data-content="The opening paragraph is revised to create a stronger sense of anticipation and excitement for the arrival of spring. The language is more vibrant and engaging.">
+                            Once upon a vibrant spring, the world stirred with anticipation. Nature's alarm clock gently
+                            awakened the dormant plants from their slumber, coaxing them to embrace the sun's warm
+                            caress.
+                        </p><br>
+
+                        <p class="good tooltip"
+                            data-content="The description of the emerging buds is enriched with sensory details and a simile, creating a vivid visual image and adding depth to the narrative.">
+                            With each passing day, the earth's canvas transformed into a kaleidoscope of colors, as
+                            delicate buds emerged, like timid dancers, from beneath the soil's embrace.
+                        </p><br>
+
+                        <p class="good tooltip"
+                            data-content="The sentence about fragrances is expanded with specific details and vivid language, enhancing the sensory experience and strengthening the connection to new beginnings.">
+                            The air hummed with a symphony of fragrances, as blossoms unfurled their petals, releasing
+                            whispers of sweet nectar and promises of new beginnings.
+                        </p><br>
+
+                        <p class="good tooltip"
+                            data-content="The paragraph about the seed's growth is rewritten to add more descriptive language and create a greater sense of anticipation, emphasizing the seed's potential.">
+                            In the heart of this awakening, nestled within the fertile soil, a tiny seed stirred with
+                            restless energy. It held within it the blueprint of life, patiently waiting for the perfect
+                            moment to break free from its earthly cocoon.
+                        </p><br>
+
+                        <p class="good tooltip"
+                            data-content="The paragraph about the plant's growth is reimagined with additional sensory details and vivid language, painting a more vivid picture of the emerging plant.">
+                            And then, on a morning filled with magic, a tender sprout emerged, stretching upward toward
+                            the vast expanse of the heavens. Its slender stem curved gracefully, as if reaching out to
+                            embrace the sun's warm embrace. Vibrant leaves unfurled, basking in the golden rays, their
+                            chlorophyll-laden veins pulsating with life. This was no ordinary shoot; it was a testament
+                            to resilience, a symbol of hope reborn.
+                        </p><br>
+
+                        <p class="good tooltip"
+                            data-content="The paragraph about the plant's growth is enhanced with additional sensory details and vivid language, heightening the reader's connection to the beauty of nature.">
+                            As the plant grew, each day brought new wonders. Petals unfurled, revealing intricate
+                            patterns that celebrated the diversity of life. Bees buzzed joyfully, their delicate wings
+                            carrying life's essence from flower to flower, while butterflies performed a delicate
+                            ballet, their wings shimmering with iridescent hues. The plant's growth became a visual
+                            symphony, a dance of intricate shapes and vibrant colors, inviting all who beheld it to
+                            pause and marvel at the miracles of nature.
+                        </p><br>
+
+                        <p class="good tooltip"
+                            data-content="The paragraph about the plant's message is rewritten to provide a clearer and more impactful statement, emphasizing the cyclical nature of life and the importance of embracing change.">
+                            But the plant's story went beyond its own beauty. It held a message, whispered on the
+                            breeze, a reminder of life's cyclical nature. It symbolized the eternal rhythm of birth and
+                            renewal, teaching us that even in the darkest moments, there is always the promise of a new
+                            dawn. The plant urged us to embrace change, to trust in the unseen potential that lies
+                            dormant within us, waiting for the right moment to unfurl.
+                        </p><br>
+
+                        <p class="good tooltip" data-content="The concluding paragraph is rewritten to provide a more powerful and thought-provoking ending, emphasizing the transformative impact of nature and our
+                            
+                             connection to it.">
+                            And so, the story of spring unfolded, inviting us to embark on our own journeys of growth
+                            and transformation. Each blooming flower, every budding leaf, served as a mirror, reflecting
+                            the beauty and resilience that resides within us all. They whispered tales of adaptation and
+                            survival, reminding us to find solace in the ever-changing seasons of life.
+
+                            As the curtain fell on this chapter of the plant's existence, its legacy remained. It left
+                            behind a landscape adorned with the imprints of its growth, an enduring testament to the
+                            power of life's unstoppable force. And as we carry its lessons in our hearts, we too become
+                            a part of nature's symphony, participants in the eternal dance of birth, growth, and the
+                            endless cycle of renewal.
+                        </p><br><br><br><br><br><br><br><br><br><br><br>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="tooltip-modal">
+                <div class="modal-content">
+                    <img src="" class="modal-image mb-4" onerror="this.style.display='none';">
+                    <p class="modal-text"></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const tooltips = document.querySelectorAll('.tooltip');
+        const modal = document.querySelector('.tooltip-modal');
+        const modalImage = modal.querySelector('.modal-image');
+        const modalText = modal.querySelector('.modal-text');
+
+        tooltips.forEach((tooltip) => {
+            tooltip.addEventListener('mouseenter', handleTooltipMouseEnter);
+            tooltip.addEventListener('mouseleave', handleTooltipMouseLeave);
+        });
+
+        function handleTooltipMouseEnter(event) {
+            const tooltip = event.currentTarget;
+            const content = tooltip.dataset.content;
+            const image = tooltip.dataset.image;
+
+            modalText.textContent = content;
+            modalImage.src = image;
+
+            modal.style.visibility = 'visible';
+            modal.style.opacity = '1';
+        }
+
+        function handleTooltipMouseLeave() {
+            modal.style.visibility = 'hidden';
+            modal.style.opacity = '0';
+        }
+    </script>
+</body>
+
+</html>
